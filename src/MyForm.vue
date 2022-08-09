@@ -3,6 +3,7 @@
   {{ formData.inputName }}
   {{ formData.inputEmail }}
   {{ formData.inputSalary }}
+  {{ employee }}
   <form
     action="http://localhost/api/v1/addEmployee"
     method="post"
@@ -36,13 +37,18 @@ export default {
         inputEmail: "",
         inputSalary: "",
       },
+      employee: "",
     };
   },
   methods: {
     doAction() {
-      api.sendPost();
+      // api.sendPost();
       // api.sendPut();
       // api.sendGet();
+      // this.employee = api.sendGet();
+      api.sendGet().then((meta) => {
+        this.employee = meta;
+      });
       alert("ok");
 
       // const requestOptions = {

@@ -34,7 +34,8 @@ const api = {
   async sendGet() {
     try {
       const response = await axios.get("http://localhost/api/v1/employee");
-      console.log(response.data.data[0].name);
+      // console.log(response.data.data[0].name);
+      return response.data.data[0].name;
     } catch (error) {
       console.error(error);
     }
