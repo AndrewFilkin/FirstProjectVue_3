@@ -14,6 +14,11 @@
     <input name="salary" type="number" v-model="formData.inputSalary" />
     <button type="submit" @click="doAction()">Send my greetings</button>
   </form>
+  <ul>
+    <li v-for="item in employee" :key="item.id">
+      {{ item.name }}
+    </li>
+  </ul>
 
   <!--  <form-->
   <!--    action="http://localhost/api/v1/employee"-->
@@ -37,7 +42,7 @@ export default {
         inputEmail: "",
         inputSalary: "",
       },
-      employee: "",
+      employee: [],
     };
   },
   methods: {
@@ -49,7 +54,7 @@ export default {
       api.sendGet().then((meta) => {
         this.employee = meta;
       });
-      alert("ok");
+      // alert("ok");
 
       // const requestOptions = {
       //   method: "POST",

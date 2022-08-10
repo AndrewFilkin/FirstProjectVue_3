@@ -1,5 +1,7 @@
 import axios from "axios";
 
+let arr = [];
+
 const api = {
   sendPost() {
     axios
@@ -35,7 +37,10 @@ const api = {
     try {
       const response = await axios.get("http://localhost/api/v1/employee");
       // console.log(response.data.data[0].name);
-      return response.data.data[0].name;
+      // return response.data.data[0].name;
+
+      arr = response.data.data;
+      return arr;
     } catch (error) {
       console.error(error);
     }
